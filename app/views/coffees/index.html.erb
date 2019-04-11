@@ -11,12 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @coffee.each do |f| %>
+    <% @coffees.each do |f| %>
+      <tr>
         <td><%= f.name %></td>
         <td><%= f.roasters%></td>
         <td><%= link_to "Show post", '#' %>
-      <% end %>
-    </tr>
+      </tr>
+    <% end %>
   </tbody>
 </table>
