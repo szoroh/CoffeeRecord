@@ -1,0 +1,22 @@
+<h1 class="ui top attached header">
+  List of all coffee profiles.
+</h1>
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roasters</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @coffee.each do |f| %>
+        <td><%= f.name %></td>
+        <td><%= f.roasters%></td>
+        <td><%= link_to "Show post", '#' %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
