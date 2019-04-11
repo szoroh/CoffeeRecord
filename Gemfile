@@ -15,6 +15,8 @@ gem 'rubocop-performance'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
