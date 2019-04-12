@@ -5,7 +5,7 @@ RSpec.describe "Coffee resource", type: :system do
 
   describe "index" do
     it "enables me to list coffee profiles" do
-      visit "/coffee"
+      visit "/coffees"
 
       expect(page).to have_text("Ethiopia Jajmejo")
       expect(page).to have_text("Friedhats")
