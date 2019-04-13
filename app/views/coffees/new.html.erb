@@ -1,0 +1,54 @@
+<h1>Please, create your coffee profile below.</h1>
+
+<div class="ui large align form">
+  <%= form_for @coffee do |f| %>
+    <div class="inline field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="inline field">
+      <%= f.label :roasters %>
+      <%= f.text_field :roasters %>
+    </div>
+    <div class="inline field">
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+    </div>
+    <div class="inline field">
+      <%= f.label :region %>
+      <%= f.text_field :region %>
+    </div>
+    <div class="inline field">
+      <%= f.label :cultivation_altitude %>
+      <%= f.text_field :cultivation_altitude %>
+    </div>
+    <div class="inline field">
+      <%= f.label :variety %>
+      <%= f.text_field :variety %>
+    </div>
+    <div class="inline field">
+      <%= f.label :treatment_method %>
+      <%= f.text_field  :treatment_method %>
+    </div>
+    <div class="inline field">
+      <%= f.label :package_quantity %>
+      <%= f.text_field :package_quantity %>
+    </div>
+    <div class="inline field">
+      <%= f.label :brew_method %>
+      <%= f.text_field :brew_method %>
+    </div>
+    <div class="inline field">
+      <%= f.label :flavour_profile %>
+      <%= f.text_field :flavour_profile %>
+    </div>
+    <div class="inline field">
+      <%= f.label :roast_date %>
+      <%= f.text_field :roast_date %>
+    </div>
+
+    <div>
+      <button class="ui button" type="submit">Submit</button>
+    </div>
+  <% end %>
+</div>
