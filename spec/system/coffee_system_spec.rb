@@ -60,4 +60,23 @@ RSpec.describe "Coffee resource", type: :system do
       end
     end
   end
+
+  describe "show" do
+    let (:coffee) { create(:coffee) }
+
+      context "enbles me to show respective coffee" do
+        it "is valid" do
+
+        expect(coffee.name).to             have_text("Ethiopia Dimtu Tero")
+        expect(coffee.roasters).to         have_text("Friedhats")
+        expect(coffee.country).to          have_text("Ethiopia")
+        expect(coffee.region).to           have_text("Unknown")
+        expect(coffee.variety).to          have_text("heirloom")
+        expect(coffee.treatment_method).to have_text("washed")
+        expect(coffee.package_quantity).to have_text("250")
+        expect(coffee.flavour_profile).to  have_text("flower, apricot, milk chocolate")
+        expect(coffee.roast_date).to       have_text("2019-04-01")
+      end
+    end
+  end
 end
