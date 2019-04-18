@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Coffee resource", type: :system do
-  let!(:coffee) { Coffee.create(name: "Ethiopia Jajmejo", roasters: "Friedhats") }
+  let!(:coffee) { Coffee.create(name: "Ethiopia Jajmejo", roasters: "Friedhats", id: 1) }
 
   describe "index" do
     it "enables me to list coffee profiles" do
@@ -77,6 +77,15 @@ RSpec.describe "Coffee resource", type: :system do
         expect(coffee.flavour_profile).to  have_text("flower, apricot, milk chocolate")
         expect(coffee.roast_date).to       have_text("2019-04-01")
       end
+    end
+  end
+
+  describe "delete" do
+    it "enables me to delete created coffee" do
+      visit "/coffees/1"
+
+      click_button "Delete"
+      expect(page).to have_text("Coffee was successfully deleted.")
     end
   end
 end
