@@ -23,6 +23,13 @@ class CoffeesController < ApplicationController
     @coffee = Coffee.find(params[:id])
   end
 
+  def destroy
+    @coffee = Coffee.find(params[:id])
+    @coffee.destroy
+    flash[:success] = "Coffee was successfully deleted."
+    redirect_to coffees_path
+  end
+
   private
 
   def coffee_params
