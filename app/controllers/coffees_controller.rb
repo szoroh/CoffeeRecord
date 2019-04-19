@@ -1,4 +1,6 @@
 class CoffeesController < ApplicationController
+  before_action :set_coffee, only: [:show, :edit, :destroy, :update]
+
   def index
     @coffees = Coffee.all
   end
@@ -20,14 +22,26 @@ class CoffeesController < ApplicationController
   end
 
   def show
-    @coffee = Coffee.find(params[:id])
   end
 
   def destroy
-    @coffee = Coffee.find(params[:id])
     @coffee.destroy
     flash[:success] = "Coffee was successfully deleted."
     redirect_to coffees_path
+  end
+
+  def edit
+    # body omitted
+  end
+
+  def update
+    if @coffee.update(coffee_params)
+      flash[:success] = "Coffee has been successfully updated."
+      redirect_to coffees_path
+    else
+      flash[:error] = @coffee.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   private
@@ -37,5 +51,9 @@ class CoffeesController < ApplicationController
                                    :cultivation_altitude, :variety,
                                    :treatment_method, :package_quantity,
                                    :brew_method, :flavour_profile, :roast_date)
+  end
+
+  def set_coffee
+    @coffee = Coffee.find(params[:id])
   end
 end

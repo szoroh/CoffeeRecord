@@ -88,4 +88,40 @@ RSpec.describe "Coffee resource", type: :system do
       expect(page).to have_text("Coffee was successfully deleted.")
     end
   end
+
+  describe "edit" do
+    context "with fulfilled validations" do
+      it "updates coffee properly" do
+        visit '/coffees/1/edit'
+
+        fill_in "Name",     with: "Ethiopia Guji"
+        fill_in "Roasters", with: "J & N"
+
+        click_button "Submit"
+        expect(page).to have_text("Coffee has been successfully updated.")
+      end
+    end
+
+    context "with wrong validations" do
+      it "does not update coffee without name" do
+        visit '/coffees/1/edit'
+
+        fill_in "Name",     with: ""
+        fill_in "Roasters", with: "J & N"
+
+        click_button "Submit"
+        expect(page).to have_text("Name can't be blank")
+      end
+
+      it "does not update coffee without roasters" do
+        visit '/coffees/1/edit'
+
+        fill_in "Name",     with: "Ethiopia Guji"
+        fill_in "Roasters", with: ""
+
+        click_button "Submit"
+        expect(page).to have_text("Roasters can't be blank")
+      end
+    end
+  end
 end
