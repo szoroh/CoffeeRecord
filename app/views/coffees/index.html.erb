@@ -11,11 +11,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @coffees.each do |f| %>
+    <% @coffees.each do |coffee| %>
       <tr>
-        <td><%= f.name %></td>
-        <td><%= f.roasters%></td>
-        <td><%= link_to "Show post", '#' %>
+        <td><%= coffee.name %></td>
+        <td><%= coffee.roasters%></td>
+        <td><%= link_to "Show post", coffee_path(coffee) %>
       </tr>
     <% end %>
   </tbody>
