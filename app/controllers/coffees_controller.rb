@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CoffeesController < ApplicationController
-  before_action :set_coffee, only: [:show, :edit, :destroy, :update]
+  before_action :set_coffee, only: %i[show edit destroy update]
 
   def index
     @coffees = Coffee.all
@@ -21,22 +23,19 @@ class CoffeesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @coffee.destroy
-    flash[:success] = "Coffee was successfully deleted."
+    flash[:success] = 'Coffee was successfully deleted.'
     redirect_to coffees_path
   end
 
-  def edit
-    # body omitted
-  end
+  def edit; end
 
   def update
     if @coffee.update(coffee_params)
-      flash[:success] = "Coffee has been successfully updated."
+      flash[:success] = 'Coffee has been successfully updated.'
       redirect_to coffees_path
     else
       flash[:error] = @coffee.errors.full_messages.to_sentence
