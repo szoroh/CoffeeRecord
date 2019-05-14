@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_221650) do
+ActiveRecord::Schema.define(version: 2019_05_14_191835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2019_04_20_221650) do
     t.text "feedback"
     t.text "flavour_profile"
     t.integer "cultivation_altitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "brew_method"
+    t.text "feedback"
+    t.string "roast_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
