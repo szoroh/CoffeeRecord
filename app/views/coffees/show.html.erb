@@ -22,41 +22,43 @@
       <th>Region</th>
       <th>Variety</th>
       <th>Treatment method</th>
-      <th>Package quantity</th>
-      <th>Brew method</th>
       <th>Flavour profile</th>
-      <th>Roast date</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td data-label="Country"><%= @coffee.country %></td>
       <td data-label="Region"><%= @coffee.region %></td>
-      <td data-label="Variety"><%= @coffee.treatment_method %></td>
+      <td data-label="Variety"><%= @coffee.variety %></td>
 
       <td data-label="Treatment method"><%= @coffee.treatment_method %></td>
-      <td data-label="Package quantity"><%= @coffee.package_quantity %></td>
-      <td data-label="Brew method"><%= @coffee.brew_method %></td>
       <td data-label="Flavour profile"><%= @coffee.flavour_profile %></td>
-      <td data-label="Roast date"><%= @coffee.roast_date %></td>
     </tr>
   </tbody>
 </table>
 
-<h1>Feedback</h1>
+<h1>Recipes</h1>
 <table class="ui celled table">
   <thead>
     <tr>
+      <th>Brew method</th>
+      <th>Raost date</th>
       <th>Feedback</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td data-label="Feedback"><%= @coffee.feedback %>
-    </tr>
+    <% @coffee.recipes.each do |recipe| %>
+      <tr>
+        <td data-label="Brew method"><%= recipe.brew_method %></td>
+        <td data-label="Roast date"><%= recipe.roast_date %></td>
+        <td data-label="Feedback"><%= recipe.feedback %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-
 <button>
   <%= link_to "Delete", coffee_path(@coffee), method: :delete %>
 </button>
+
+
+<%= link_to "Add a recipe", new_coffee_recipe_path(@coffee) %>
