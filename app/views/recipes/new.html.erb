@@ -1,0 +1,21 @@
+<h1>Please, create a new recipe for the coffee.</h1>
+
+<div class="ui large align form">
+  <%= form_for([@coffee, Recipe.new]) do |f| %>
+    <div class="inline field">
+      <%= f.label :brew_method %>
+      <%= f.text_field :brew_method %>
+    </div>
+    <div class="inline field">
+      <%= f.label :feedback %>
+      <%= f.text_field :feedback %>
+    </div>
+    <div class="inline field">
+      <%= f.label :roast_date %>
+      <%= f.text_field :roast_date %>
+    </div>
+    <div>
+      <button class="ui button" type="submit">Submit</button>
+    </div>
+  <% end %>
+</div>
