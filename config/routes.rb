@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root 'pages#welcome'
 
   devise_for :users
-  resources :coffees
+  resources :coffees do
+    resources :recipes
+  end
 end
