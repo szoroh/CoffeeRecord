@@ -1,24 +1,26 @@
 <div class="ui small inverted segment">
   <div class="ui inverted secondary pointing menu">
     <button class="item">
-      <%= link_to "Coffee Record", root_path, class: "ui secondary button" %>
+      <%= link_to "Coffee Record", root_path, class: 'ui bold secondary button' %>
     </button>
     <% if user_signed_in? %>
       <div class="right menu">
-        <div class="simple item">
-          <%= link_to "Coffee list", coffees_path, class: "ui secondary button" %>
-        </div>
-        <div class="simple item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete,  class: "ui secondary button" %>
+        <div class="ui inverted dropdown menu">
+          <%= current_user.name %>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><%= link_to 'Coffee list', coffees_path, class: 'ui button' %></div>
+            <div class="item"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'ui button' %></div>
+          </div>
         </div>
       </div>
     <% else %>
       <div class="right menu">
         <div class="item">
-          <%= link_to "Sign up", new_user_registration_path, class: "ui primary button" %>
+          <%= link_to "Log in", new_user_session_path, class: "ui secondary button" %>
         </div>
         <div class="item">
-          <%= link_to "Log in", new_user_session_path, class: "ui secondary button" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "ui primary button" %>
         </div>
       </div>
     <% end %>
