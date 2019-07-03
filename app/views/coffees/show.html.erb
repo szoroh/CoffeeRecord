@@ -41,15 +41,12 @@
 <table class="ui celled table">
   <thead>
     <tr>
-      <th>Brew method</th>
-      <th>Raost date</th>
       <th>Feedback</th>
     </tr>
   </thead>
   <tbody>
     <% @coffee.recipes.each do |recipe| %>
       <tr>
-        <td data-label="Brew method"><%= recipe.brew_method %></td>
         <td data-label="Roast date"><%= recipe.roast_date %></td>
         <td data-label="Feedback"><%= recipe.feedback %></td>
       </tr>

@@ -26,10 +26,7 @@ RSpec.describe 'Coffee resource', type: :system do
         fill_in 'Cultivation altitude', with: 1800
         fill_in 'Variety',              with: 'Heirloom'
         fill_in 'Treatment method',     with: 'Washed'
-        fill_in 'Package quantity',     with: 250
-        fill_in 'Brew method',          with: 'Aeropress'
         fill_in 'Flavour profile',      with: 'Citrus'
-        fill_in 'Roast date',           with: 0o1 / 0o1 / 2019
 
         click_button 'Submit'
 
@@ -49,10 +46,7 @@ RSpec.describe 'Coffee resource', type: :system do
         fill_in 'Cultivation altitude', with: 1800
         fill_in 'Variety',              with: 'Heirloom'
         fill_in 'Treatment method',     with: 'Washed'
-        fill_in 'Package quantity',     with: 250
-        fill_in 'Brew method',          with: 'Aeropress'
         fill_in 'Flavour profile',      with: 'Citrus'
-        fill_in 'Roast date',           with: 0o1 / 0o1 / 2019
 
         click_button 'Submit'
 
@@ -73,9 +67,7 @@ RSpec.describe 'Coffee resource', type: :system do
         expect(coffee.region).to           have_text('Unknown')
         expect(coffee.variety).to          have_text('heirloom')
         expect(coffee.treatment_method).to have_text('washed')
-        expect(coffee.package_quantity).to have_text('250')
         expect(coffee.flavour_profile).to  have_text('flower, apricot, milk chocolate')
-        expect(coffee.roast_date).to       have_text('2019-04-01')
       end
     end
   end
