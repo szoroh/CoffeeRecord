@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit destroy]
+  before_action :set_recipe, only: %i[show update edit destroy]
+
   def new
     @coffee = Coffee.find(params[:coffee_id])
     @recipe = @coffee.recipes.new
@@ -18,10 +19,22 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @recipe.update(recipe_params)
+      flash[:notice] = 'Recipe was successfully updated.'
+      redirect_to coffee_recipes_path
+    else
+      flash[:error] = @recipe.errors.full_messages.to_sentance
+      render :edit
+    end
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:brew_method, :feedback, :roast_date, :coffee_id)
+    params.require(:recipe).permit(:brew_method, :feedback, :roast_date)
   end
 
   def set_recipe

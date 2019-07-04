@@ -49,7 +49,8 @@ class CoffeesController < ApplicationController
     params.require(:coffee).permit(:name, :roasters, :country, :region,
                                    :cultivation_altitude, :variety,
                                    :treatment_method, :package_quantity,
-                                   :brew_method, :flavour_profile, :roast_date)
+                                   :brew_method, :flavour_profile, :roast_date,
+                                   :user_id)
   end
 
   def set_coffee
