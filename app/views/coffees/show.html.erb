@@ -42,20 +42,25 @@
   <thead>
     <tr>
       <th>Feedback</th>
+      <th>Roast date</th>
+      <th>Brew method</th>
+      <th>Edit recipe</th>
     </tr>
   </thead>
   <tbody>
     <% @coffee.recipes.each do |recipe| %>
       <tr>
-        <td data-label="Roast date"><%= recipe.roast_date %></td>
         <td data-label="Feedback"><%= recipe.feedback %></td>
+        <td data-label="Roast date"><%= recipe.roast_date %></td>
+        <td data-label="Bew method"><%= recipe.brew_method %></td>
+        <td data-label="Edit recie"><%= link_to "Edit recipe", edit_coffee_recipe_path(@coffee, recipe) %>
       </tr>
     <% end %>
   </tbody>
 </table>
 <button>
-  <%= link_to "Delete", coffee_path(@coffee), method: :delete %>
+  <%= link_to "Add a recipe", new_coffee_recipe_path(@coffee) %>
 </button>
-
-
-<%= link_to "Add a recipe", new_coffee_recipe_path(@coffee) %>
+<button>
+  <%= link_to "Edit this coffee profile", edit_coffee_path(@coffee) %>
+</button>

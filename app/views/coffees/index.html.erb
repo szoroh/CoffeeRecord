@@ -1,9 +1,9 @@
 <h1 class="ui top attached header">
   List of all coffee profiles.
 </h1>
-
-<table class="ui celled table">
-  <thead>
+<br/>
+<table class="ui striped celled table">
+  <thead class="full-width">
     <tr>
       <th>Name</th>
       <th>Roasters</th>
@@ -15,8 +15,12 @@
       <tr>
         <td><%= coffee.name %></td>
         <td><%= coffee.roasters%></td>
-        <td><%= link_to "Show post", coffee_path(coffee) %>
+        <td><%= link_to "Show coffee profile", coffee_path(coffee) %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br/>
+<button>
+<%= link_to "Create new coffee profile", new_coffee_path %>
+</button>
