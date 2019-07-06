@@ -7,12 +7,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @coffee = Coffee.find(params[:coffee_id])
-    @recipe = @coffee.recipes.new(recipe_params)
+    coffee = Coffee.find(params[:coffee_id])
+
+    @recipe = coffee.recipes.new(recipe_params.merge(user: current_user))
 
     if @recipe.save
       flash[:success] = 'Recipe has been successfully created'
-      redirect_to coffees_path
+      redirect_to coffee_path(coffee)
     else
       flash[:error] = @recipe.errors.full_messages.to_sentence
       redirect_to coffees_path
@@ -34,7 +35,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:brew_method, :feedback, :roast_date)
+    params.require(:recipe).permit(:brew_method, :feedback, :roast_date, :coffee_id)
   end
 
   def set_recipe

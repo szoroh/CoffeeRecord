@@ -12,7 +12,7 @@ class CoffeesController < ApplicationController
   end
 
   def create
-    @coffee = Coffee.new(coffee_params)
+    @coffee = current_user.coffees.new(coffee_params)
 
     if @coffee.save
       flash[:success] = 'Coffee successfully created'
