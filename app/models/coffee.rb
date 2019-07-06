@@ -5,4 +5,5 @@ class Coffee < ApplicationRecord
   validates :roasters, presence: true
 
   has_many :recipes, dependent: :destroy
+  belongs_to :user
 end
